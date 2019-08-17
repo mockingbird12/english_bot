@@ -13,3 +13,17 @@ def gen_markup():
                InlineKeyboardButton("8", callback_data=8),
                )
     return markup
+
+def main_markup():
+    markup = InlineKeyboardMarkup()
+    markup.add(InlineKeyboardButton('Add word', callback_data='add_word'),
+            #   InlineKeyboardButton("Start Test", callback_data='start_test')
+               )
+    return markup
+
+def check_user():
+    pass
+
+def add_word(word_data):
+    # word_data - dictionary {'word':'some_word', 'translate':'word_translate'}
+    pass
