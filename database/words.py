@@ -12,7 +12,7 @@ words_translate_association = Table(
 class Word(Base):
     __tablename__ = 'words'
     id = Column(Integer, primary_key=True)
-    word = Column(String)
+    word = Column(String, unique=True)
 
     def __init__(self, word):
         self.word = word

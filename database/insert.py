@@ -5,6 +5,7 @@ from database.base import Base, engine, Session
 
 Base.metadata.create_all(engine)
 
+
 def insert_user(username, state):
     session = Session()
     user = User(username, state)
@@ -15,6 +16,7 @@ def insert_user(username, state):
         session.close()
     else:
         print('User already exists')
+
 
 def update_status(username, state):
     session = Session()
@@ -30,13 +32,16 @@ def update_status(username, state):
         session.commit()
         session.close()
 
+
 def get_user_status(username):
     session = Session()
     user_info = session.query(User).filter(User.name == username).all()
     if user_info != []:
+        session.close()
         return user_info[0].state
     else:
         return None
+
 
 def insert_word(eng_word):
     session = Session()
@@ -44,6 +49,7 @@ def insert_word(eng_word):
     session.add(word)
     session.commit()
     session.close()
+
 
 def insert_translate(translate_word):
     session = Session()
